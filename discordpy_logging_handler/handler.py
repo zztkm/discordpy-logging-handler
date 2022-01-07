@@ -4,12 +4,12 @@ import traceback
 
 import discord
 from discord import Color
-from libs.embed import get_custum_embed
-from libs.utils import get_now_timestamp_jst
+
+from ._datetime import aware_now
+from ._embed import get_custum_embed
 
 
 class DiscordBotHandler(logging.Handler):
-
     def __init__(self, log_channel: discord.TextChannel) -> None:
         logging.Handler.__init__(self)
         self.log_channel = log_channel
@@ -18,7 +18,7 @@ class DiscordBotHandler(logging.Handler):
             "INFO": Color.from_rgb(255, 255, 255),
             "WARNING": Color.from_rgb(255, 255, 0),
             "CRITICAL": Color.from_rgb(255, 255, 0),
-            "ERROR": Color.red()
+            "ERROR": Color.red(),
         }
 
     def set_channel(self, log_channel: discord.TextChannel):
@@ -29,7 +29,7 @@ class DiscordBotHandler(logging.Handler):
 
     def emit(self, record):
         try:
-            timestamp = get_now_timestamp_jst()
+            timestamp = aware_now()
             embed = get_custum_embed()
             level = record.levelname
             logger_name = record.name

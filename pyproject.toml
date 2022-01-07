@@ -7,6 +7,17 @@ license = "MIT"
 readme = "README.md"
 repository = ""
 
+include = [
+  "docs",
+  "poetry.lock",
+  "tests",
+  "tox.ini",
+]
+
+exclude = [
+  "docs/_build",
+]
+
 [tool.poetry.dependencies]
 python = "^3.6.2"
 Sphinx = {version = "^4.3.2", optional = true, extras = ["docs"]}
