@@ -61,6 +61,3 @@ jobs:
 
     - name: Install package
       run: python -m pip install .
-
-    - name: Import package
-      run: python -c "import discordpy_logging_handler; print(discordpy_logging_handler.__version__)"
