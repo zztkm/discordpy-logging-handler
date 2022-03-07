@@ -2,6 +2,16 @@
 
 Forward Discord bot logs to Discord Text channel.
 
+## Install
+
+```shell
+pip install -U discord.py
+```
+
+```shell
+pip install discordpy-logging-handler
+```
+
 ## Usage
 
 ```python
